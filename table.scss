@@ -1,0 +1,69 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: 4px;
+  @include flex(center, center, row);
+  color: $grey100;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 1500px;
+    @include flex(center, center, column);
+    gap: 10px;
+
+    &-head {
+      width: 100%;
+
+      &-row {
+        width: 100%;
+
+        @include flex(center, space-evenly, row);
+        flex-grow: 1;
+        gap: 10px;
+        flex-wrap: nowrap;
+
+        &-title {
+          @include flex(center, center, row);
+          font-weight: bold;
+          text-align: left;
+          min-width: 50px;
+          padding: 10px;
+          border-bottom: 1px solid $grey300;
+        }
+      }
+    }
+
+    &-body {
+      width: 100%;
+      @include flex(center, space-evenly, column);
+      gap: 10px;
+      flex-wrap: nowrap;
+      &-row {
+        width: 100%;
+        @include flex(center, space-evenly, row);
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+      &-content {
+        min-width: 50px;
+        padding: 20px 10px;
+        border-bottom: 1px solid $grey300;
+        @include flex(center, center, row);
+
+        &-btns {
+          width: 100%;
+          @include flex(center, center, row);
+          cursor: pointer;
+          color: $blue;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #0056b3;
+          }
+        }
+      }
+    }
+  }
+}
