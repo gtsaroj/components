@@ -2,6 +2,36 @@ import { FaEdit, FaEye, FaTrash } from 'react-icons/fa'
 import Loader from '../loader/loader.component'
 import Pagination from '../pagination/pagination.common'
 
+
+declare namespace Table {
+  interface TableModalProps<T> {
+    data: Array<T>
+    columns: ColumnProps[]
+    actions?: TableActions
+    loading?: boolean
+    headStyle?: React.CSSProperties
+    actionIconColor?: string
+    bodyHeight?: number
+    pagination?: {
+      perPage?: number
+      currentPage?: number
+    }
+    disableNoData?: boolean
+    onPageChange?: (page: number) => void
+    disableActions?: boolean
+  }
+  interface TableActions {
+    editFn?: (id: string) => void
+    deleteFn?: (id: string) => void
+    viewFn?: (id: string) => void
+  }
+  interface ColumnProps {
+    fieldName: string
+    colStyle?: React.CSSProperties
+    render?: (item: any) => React.ReactNode
+  }
+}
+
 function Table<T extends { id: string }>({
   data,
   columns,
